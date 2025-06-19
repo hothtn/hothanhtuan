@@ -3,28 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ho Thanh Tuan</title>
+    <title>Ho Thanh Tuan - Chuyên Gia Chuyển Đổi Số</title>
+    <link rel="icon" href="https://hothanhtuan.com/wp-content/uploads/2024/07/cropped-Favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://hothanhtuan.com/wp-content/uploads/2024/07/cropped-Favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://hothanhtuan.com/wp-content/uploads/2024/07/cropped-Favicon-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://hothanhtuan.com/wp-content/uploads/2024/07/cropped-Favicon-270x270.png" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40wibVxf5BgzzF/gCLvTjJzQ+2rQjK85s4rG2oM+72S5pL5B7y7K8h+x1bXk2v3+A2+0y+4v9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         /* Global Styles & Reset */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif; /* You can replace this with your desired font */
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
+        :root {
+            --primary-dark-bg: #0A0A0A; /* Màu nền chính (đen) */
+            --secondary-dark-bg: #1A1A1A; /* Màu nền phụ, ví dụ cho footer */
+            --text-light: #F0F0F0; /* Màu chữ sáng */
+            --accent-color: #FFD700; /* Màu nhấn, ví dụ cho các tiêu đề phụ hoặc chi tiết nổi bật (vàng) */
+            --border-color: #333; /* Màu viền hoặc đường kẻ chia */
+            --spacing-xs: 10px;
+            --spacing-sm: 20px;
+            --spacing-md: 40px;
+            --spacing-lg: 60px;
+            --spacing-xl: 80px;
         }
 
-        /* --- Header/Hero Section Styles --- */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif; /* Sử dụng Montserrat cho tiêu đề và chữ mạnh */
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--primary-dark-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Open Sans', sans-serif; /* Sử dụng Open Sans cho nội dung chính */
+            margin-top: 0;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-light);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #FFC107; /* Màu vàng đậm hơn khi hover */
+        }
+
+        .container {
+            max-width: 1200px; /* Giới hạn chiều rộng nội dung tương tự trang gốc */
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+            box-sizing: border-box;
+        }
+
+        /* --- Hero Section Styles --- */
         .hero-section {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 20px; /* Default padding */
-            min-height: 300px; /* Adjust as needed */
-            background-color: #000; /* Dark background as seen on the site */
-            color: #fff; /* White text */
+            padding: var(--spacing-xl) var(--spacing-sm); /* Default padding: 80px top/bottom, 20px left/right */
+            min-height: 500px; /* Chiều cao tối thiểu, có thể điều chỉnh */
+            background-color: var(--primary-dark-bg);
             position: relative;
-            overflow: hidden; /* To ensure background image doesn't overflow */
+            overflow: hidden;
+            text-align: center; /* Căn giữa nội dung khi không có 2 cột rõ ràng */
         }
 
         .hero-section::before {
@@ -36,75 +84,90 @@
             height: 100%;
             background-image: url('https://hothanhtuan.com/wp-content/uploads/2024/11/htt_logo-2.png');
             background-repeat: no-repeat;
-            background-size: contain; /* Similar to 'cover' but keeps aspect ratio, fits within bounds */
-            background-position: center center; /* Centered in the background */
-            opacity: 0.1; /* Adjust opacity for the subtle background logo */
-            z-index: 1; /* Place behind content */
+            background-size: contain;
+            background-position: center center;
+            opacity: 0.05; /* Giảm opacity để logo chìm hẳn vào nền */
+            z-index: 1;
         }
 
-        .hero-inner-wrap {
+        .hero-content {
             position: relative;
-            z-index: 2; /* Place content above background image */
-            display: flex;
-            max-width: 1180px; /* columnsWidth from your block */
-            width: 100%;
-            gap: 20px; /* Space between columns */
-            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
-            align-items: center; /* Vertical align center for columns */
+            z-index: 2;
+            max-width: 800px; /* Giới hạn chiều rộng nội dung chính của hero */
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .hero-column-left {
-            flex: 1; /* Takes up available space */
-            min-width: 300px; /* Minimum width before wrapping */
-            padding: 20px;
-            /* Based on columnWidth 33.52, this column seems to be empty or for logo only */
-            /* For now, we'll keep it as a placeholder. */
-        }
-
-        .hero-column-right {
-            flex: 2; /* Takes up more space, approx 66% based on columnWidth */
-            min-width: 300px; /* Minimum width before wrapping */
-            padding: 20px;
-        }
-
-        .hero-column-right p.sub-heading {
-            font-size: 12px;
+        .hero-content .sub-heading {
+            font-size: 14px;
             text-transform: uppercase;
-            font-weight: bold; /* Based on <strong> tag in your P block */
-            margin-bottom: 25px; /* From marginBottomTablet: 25 */
-            margin-top: 0;
-            color: #ccc; /* Slightly lighter color for sub-heading */
+            font-weight: bold;
+            margin-bottom: var(--spacing-sm);
+            color: var(--accent-color); /* Màu vàng cho tiêu đề phụ */
+            letter-spacing: 1px;
         }
 
-        .hero-column-right h1.main-heading {
-            font-size: 48px; /* Example size, adjust as needed */
-            text-align: left;
-            margin-top: 0;
-            margin-bottom: 20px;
-            color: #fff;
+        .hero-content .main-heading {
+            font-size: 56px; /* Kích thước chữ lớn cho tiêu đề chính */
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-light);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Tạo hiệu ứng đổ bóng nhẹ */
+        }
+
+        .hero-content .main-heading strong {
+            color: var(--accent-color); /* Nổi bật phần tên/keyphrase */
+        }
+
+        .hero-content .description {
+            font-size: 18px;
+            margin-bottom: var(--spacing-md);
+            color: #ccc; /* Màu xám nhạt hơn cho mô tả */
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-dark-bg); /* Chữ đen trên nền vàng */
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #FFC107; /* Màu vàng đậm hơn khi hover */
+            transform: translateY(-2px); /* Hiệu ứng nhấc nhẹ */
         }
 
         /* --- Footer Styles --- */
         .site-footer {
-            background-color: #333; /* Dark background for footer */
-            color: #fff;
-            padding: 60px 50px; /* Padding based on block */
+            background-color: var(--secondary-dark-bg); /* Nền footer hơi khác so với nền chính */
+            color: var(--text-light);
+            padding: var(--spacing-lg) var(--spacing-sm); /* Padding: 60px top/bottom, 20px left/right */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 40vh; /* minHeight from your block */
+            min-height: 300px; /* minHeight cho footer, có thể điều chỉnh */
             text-align: center;
-            box-sizing: border-box; /* Include padding in element's total width and height */
+            box-sizing: border-box;
+            border-top: 1px solid var(--border-color); /* Đường kẻ phân cách */
         }
 
         .social-links {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 0 0 var(--spacing-md) 0; /* Khoảng cách dưới các icon */
             display: flex;
-            gap: 12px; /* blockGap from your block */
-            flex-wrap: nowrap;
+            gap: var(--spacing-xs); /* Khoảng cách giữa các icon */
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .social-links li {
@@ -113,96 +176,107 @@
 
         .social-links a {
             display: block;
-            width: 40px; /* Example size for icons */
-            height: 40px; /* Example size for icons */
-            background-color: #555; /* Icon background, adjust as needed */
+            width: 50px; /* Kích thước icon lớn hơn */
+            height: 50px;
+            background-color: var(--border-color); /* Nền icon màu xám đậm */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px; /* Example icon size */
-            transition: background-color 0.3s ease;
+            color: var(--text-light);
+            font-size: 24px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .social-links a:hover {
-            background-color: #007bff; /* Example hover color */
+            background-color: var(--accent-color); /* Nền icon đổi sang màu vàng khi hover */
+            color: var(--primary-dark-bg); /* Chữ icon đổi sang màu đen khi hover */
         }
 
-        /* Basic Font Awesome for social icons (you'll need to link to Font Awesome CDN) */
-        .fab {
-            font-family: 'Font Awesome 5 Brands'; /* This requires Font Awesome to be linked */
+        .footer-copyright {
+            font-size: 14px;
+            color: #aaa; /* Màu chữ bản quyền hơi nhạt hơn */
         }
 
         /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .hero-content .main-heading {
+                font-size: 48px;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero-section {
-                padding: 20px; /* paddingTablet */
+                padding: var(--spacing-md) var(--spacing-sm); /* Padding tablet */
+                min-height: 400px;
             }
-
-            .hero-inner-wrap {
-                flex-direction: column; /* Stack columns on tablet */
-                align-items: flex-start; /* Align content to start */
-                gap: 0;
+            .hero-content .main-heading {
+                font-size: 38px;
             }
-
-            .hero-column-left,
-            .hero-column-right {
-                flex: none; /* Remove flex grow */
-                width: 100%; /* Take full width */
-                padding: 20px; /* paddingTablet */
+            .hero-content .description {
+                font-size: 16px;
             }
-
-            .hero-column-right p.sub-heading {
-                margin-bottom: 20px; /* marginBottomMobile */
-            }
-
-            .hero-column-right h1.main-heading {
-                font-size: 36px; /* Adjust font size for tablets */
-            }
-
             .site-footer {
-                padding: 40px 30px; /* Adjust footer padding */
-                min-height: unset; /* Remove min-height to allow content to dictate height */
+                padding: var(--spacing-md) var(--spacing-sm);
             }
         }
 
         @media (max-width: 480px) {
             .hero-section {
-                padding: 20px; /* paddingMobile */
+                padding: var(--spacing-sm) var(--spacing-sm); /* Padding mobile */
+                min-height: 300px;
             }
-
-            .hero-column-left {
-                padding: 0; /* paddingMobile for column 1 */
+            .hero-content .main-heading {
+                font-size: 28px;
+                margin-bottom: var(--spacing-sm);
             }
-            .hero-column-right {
-                padding: 20px; /* paddingMobile for column 2 */
+            .hero-content .sub-heading {
+                font-size: 12px;
+                margin-bottom: var(--spacing-xs);
             }
-
-            .hero-column-right h1.main-heading {
-                font-size: 28px; /* Adjust font size for mobile */
+            .hero-content .description {
+                font-size: 15px;
+                margin-bottom: var(--spacing-sm);
             }
-
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
             .site-footer {
-                padding: 30px 20px; /* Even smaller padding for mobile */
+                padding: var(--spacing-sm);
+            }
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
             }
         }
 
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40wibVxf5BgzzF/gCLvTjJzQ+2rQjK85s4rG2oM+72S5pL5B7y7K8h+x1bXk2v3+A2+0y+4v9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
     <section class="hero-section">
-        <div class="hero-inner-wrap">
-            <div class="hero-column-left">
-                </div>
-            <div class="hero-column-right">
-                <p class="sub-heading"><strong>HTT Home</strong></p>
-                <h1 class="main-heading"></h1> </div>
+        <div class="hero-content">
+            <p class="sub-heading">HTT Home</p>
+            <h1 class="main-heading">Chào mừng đến với <strong>Hồ Thanh Tuấn</strong></h1>
+            <p class="description">
+                Chuyên gia tư vấn và triển khai giải pháp chuyển đổi số toàn diện cho doanh nghiệp,
+                kiến tạo tương lai vững mạnh cùng công nghệ.
+            </p>
+            <a href="#contact" class="cta-button">Liên hệ tư vấn ngay</a>
         </div>
     </section>
+
+    <section style="padding: var(--spacing-xl) var(--spacing-sm); text-align: center; background-color: var(--secondary-dark-bg);">
+        <h2 style="color: var(--accent-color);">Về Chúng Tôi</h2>
+        <p style="max-width: 800px; margin: 0 auto; color: #ccc;">
+            Với nhiều năm kinh nghiệm trong lĩnh vực chuyển đổi số, chúng tôi cam kết mang đến
+            các giải pháp đột phá, giúp doanh nghiệp tối ưu hóa quy trình, nâng cao hiệu quả
+            và đạt được những thành công vượt trội trong kỷ nguyên số.
+        </p>
+    </section>
+
 
     <footer class="site-footer">
         <ul class="social-links">
@@ -210,7 +284,7 @@
             <li><a href="https://www.linkedin.com/in/hothanhtuan/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
             <li><a href="mailto:mail@hothanhtuan.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
         </ul>
-        <p style="margin-top: 20px; font-size: 14px;">&copy; 2024 Ho Thanh Tuan. All rights reserved.</p>
+        <p class="footer-copyright">&copy; 2024 Hồ Thanh Tuấn. All rights reserved.</p>
     </footer>
 
 </body>
