@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* CSS Variables - Rút gọn và tối ưu */
+        /* CSS Variables */
         :root {
             --main-bg-color: #C7A855; /* Mustard yellow from screenshot */
-            --text-dark: #000000;    /* Black text for "HTT HOME" */
-            --icon-color: #000000;   /* Màu mặc định cho icon - đen */
-            --icon-bg-color: #f0f0f0; /* Màu nền icon nhẹ nhàng */
-            --icon-hover-color: #C7A855; /* Màu icon khi hover */
-            --icon-hover-bg-color: #000000; /* Màu nền icon khi hover */
+            --text-dark: #000000;    /* Black text for default, though not used much now */
+            --icon-color: #C7A855;   /* Màu icon: vàng đất */
+            --icon-bg-color: #000000; /* Màu nền icon: đen */
+            --icon-hover-color: #000000; /* Màu icon khi hover: đen */
+            --icon-hover-bg-color: #C7A855; /* Màu nền icon khi hover: vàng đất */
 
             /* Fonts */
             --font-poppins: 'Poppins', sans-serif;
@@ -33,14 +33,14 @@
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%; /* Đảm bảo body chiếm toàn bộ chiều cao */
+            height: 100%;
             font-family: var(--font-poppins);
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--main-bg-color);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            overflow: hidden; /* Ngăn cuộn nếu không có nội dung lớn */
+            overflow: hidden;
         }
 
         a {
@@ -48,62 +48,49 @@
             transition: all 0.3s ease;
         }
 
-        /* --- Hero Section Styles (đã tối ưu) --- */
+        /* --- Hero Section Styles --- */
         .hero-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+            min-height: 100vh;
             background-color: var(--main-bg-color);
-            position: relative; /* Để định vị các phần tử con */
+            position: relative;
             overflow: hidden;
-            text-align: center; /* Căn giữa nội dung văn bản */
         }
 
         .graphic-area {
             position: relative;
             width: 100%;
-            max-width: 600px; /* Vùng chứa graphic + text */
-            height: 300px; /* Chiều cao xấp xỉ của vùng graphic */
+            max-width: 600px;
+            height: 300px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: -10vh; /* Kéo graphic lên một chút so với trung tâm dọc */
-        }
-
-        .htt-home-text-in-graphic-area {
-            position: absolute;
-            top: 15%;
-            left: 5%;
-            font-family: var(--font-arial);
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: var(--text-dark);
-            z-index: 2;
+            margin-top: -10vh;
         }
 
         .snail-graphic-centered {
             width: 100%;
-            max-width: 400px; /* Kích thước tối đa của graphic */
+            max-width: 400px;
             height: auto;
             display: block;
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Căn giữa */
+            transform: translate(-50%, -50%);
             z-index: 1;
         }
 
-        /* --- Social Media Icons (tối ưu và đồng bộ) --- */
+        /* --- Social Media Icons --- */
         .social-icons-hero {
             position: absolute;
-            bottom: 50px; /* Khoảng cách từ đáy màn hình */
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 20px; /* Khoảng cách giữa các icon */
+            gap: 20px;
             z-index: 2;
         }
 
@@ -111,19 +98,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px; /* Kích thước lớn hơn một chút */
+            width: 50px;
             height: 50px;
-            border-radius: 50%; /* Hình tròn */
-            font-size: 24px; /* Kích thước icon */
-            background-color: var(--icon-bg-color); /* Nền icon đồng bộ */
-            color: var(--icon-color); /* Màu icon đồng bộ */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Đổ bóng nhẹ tạo độ nổi */
+            border-radius: 50%;
+            font-size: 24px;
+            background-color: var(--icon-bg-color); /* Nền icon ĐEN */
+            color: var(--icon-color); /* Màu icon VÀNG ĐẤT */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .social-icons-hero a:hover {
-            background-color: var(--icon-hover-bg-color); /* Nền icon khi hover */
-            color: var(--icon-hover-color); /* Màu icon khi hover */
-            transform: scale(1.1); /* Hiệu ứng phóng to nhẹ */
+            background-color: var(--icon-hover-bg-color); /* Nền icon HOVER VÀNG ĐẤT */
+            color: var(--icon-hover-color); /* Màu icon HOVER ĐEN */
+            transform: scale(1.1);
         }
 
         /* Responsive Adjustments */
@@ -131,9 +118,6 @@
             .graphic-area {
                 max-width: 500px;
                 height: 250px;
-            }
-            .htt-home-text-in-graphic-area {
-                font-size: 14px;
             }
             .snail-graphic-centered {
                 max-width: 350px;
@@ -154,11 +138,6 @@
                 height: 200px;
                 margin-top: -5vh;
             }
-            .htt-home-text-in-graphic-area {
-                font-size: 12px;
-                top: 10%;
-                left: 10%;
-            }
             .snail-graphic-centered {
                 max-width: 250px;
             }
@@ -178,7 +157,6 @@
 
     <section class="hero-container">
         <div class="graphic-area">
-            <p class="htt-home-text-in-graphic-area">HTT HOME</p>
             <img src="https://hothanhtuan.com/wp-content/uploads/2024/11/htt_logo-2.png" alt="Snail Graphic" class="snail-graphic-centered">
         </div>
 
