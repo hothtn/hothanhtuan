@@ -18,7 +18,7 @@
         /* CSS Variables */
         :root {
             --main-bg-color: #C7A855; /* Mustard yellow from screenshot */
-            --text-dark: #000000;    /* Black text for default, though not used much now */
+            --text-dark: #000000;
             --icon-color: #C7A855;   /* Màu icon: vàng đất */
             --icon-bg-color: #000000; /* Màu nền icon: đen */
             --icon-hover-color: #000000; /* Màu icon khi hover: đen */
@@ -40,7 +40,7 @@
             background-color: var(--main-bg-color);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            overflow: hidden;
+            overflow: hidden; /* Ngăn cuộn nếu không có nội dung lớn */
         }
 
         a {
@@ -51,9 +51,9 @@
         /* --- Hero Section Styles --- */
         .hero-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column; /* Xếp chồng các phần tử theo chiều dọc */
+            align-items: center; /* Căn giữa ngang */
+            justify-content: center; /* Căn giữa dọc */
             min-height: 100vh;
             background-color: var(--main-bg-color);
             position: relative;
@@ -68,7 +68,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: -10vh;
+            /* margin-top: -10vh; -- Đã bỏ để Flexbox căn giữa tự nhiên hơn */
         }
 
         .snail-graphic-centered {
@@ -85,13 +85,12 @@
 
         /* --- Social Media Icons --- */
         .social-icons-hero {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
+            /* Đã loại bỏ position: absolute để cho phép Flexbox quản lý vị trí */
+            /* Đã loại bỏ bottom, left, transform: translateX */
             display: flex;
             gap: 20px;
             z-index: 2;
+            margin-top: 40px; /* Tạo khoảng cách 40px từ khối graphic phía trên */
         }
 
         .social-icons-hero a {
@@ -102,14 +101,14 @@
             height: 50px;
             border-radius: 50%;
             font-size: 24px;
-            background-color: var(--icon-bg-color); /* Nền icon ĐEN */
-            color: var(--icon-color); /* Màu icon VÀNG ĐẤT */
+            background-color: var(--icon-bg-color);
+            color: var(--icon-color);
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .social-icons-hero a:hover {
-            background-color: var(--icon-hover-bg-color); /* Nền icon HOVER VÀNG ĐẤT */
-            color: var(--icon-hover-color); /* Màu icon HOVER ĐEN */
+            background-color: var(--icon-hover-bg-color);
+            color: var(--icon-hover-color);
             transform: scale(1.1);
         }
 
@@ -123,7 +122,7 @@
                 max-width: 350px;
             }
             .social-icons-hero {
-                bottom: 40px;
+                margin-top: 30px; /* Điều chỉnh khoảng cách trên tablet */
             }
             .social-icons-hero a {
                 width: 45px;
@@ -136,13 +135,13 @@
             .graphic-area {
                 max-width: 400px;
                 height: 200px;
-                margin-top: -5vh;
+                /* margin-top: -5vh; -- Đã bỏ */
             }
             .snail-graphic-centered {
                 max-width: 250px;
             }
             .social-icons-hero {
-                bottom: 25px;
+                margin-top: 20px; /* Điều chỉnh khoảng cách trên mobile */
                 gap: 15px;
             }
             .social-icons-hero a {
