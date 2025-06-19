@@ -1,20 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hồ Thanh Tuấn - HTT Home</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Landing Page - Hot Thanh Tuan</title>
+    <style>
+        /* Global Styles & Reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif; /* You can replace this with your desired font */
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* --- Header/Hero Section Styles --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px; /* Default padding */
+            min-height: 300px; /* Adjust as needed */
+            background-color: #000; /* Dark background as seen on the site */
+            color: #fff; /* White text */
+            position: relative;
+            overflow: hidden; /* To ensure background image doesn't overflow */
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://hothanhtuan.com/wp-content/uploads/2024/11/htt_logo-2.png');
+            background-repeat: no-repeat;
+            background-size: contain; /* Similar to 'cover' but keeps aspect ratio, fits within bounds */
+            background-position: center center; /* Centered in the background */
+            opacity: 0.1; /* Adjust opacity for the subtle background logo */
+            z-index: 1; /* Place behind content */
+        }
+
+        .hero-inner-wrap {
+            position: relative;
+            z-index: 2; /* Place content above background image */
+            display: flex;
+            max-width: 1180px; /* columnsWidth from your block */
+            width: 100%;
+            gap: 20px; /* Space between columns */
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            align-items: center; /* Vertical align center for columns */
+        }
+
+        .hero-column-left {
+            flex: 1; /* Takes up available space */
+            min-width: 300px; /* Minimum width before wrapping */
+            padding: 20px;
+            /* Based on columnWidth 33.52, this column seems to be empty or for logo only */
+            /* For now, we'll keep it as a placeholder. */
+        }
+
+        .hero-column-right {
+            flex: 2; /* Takes up more space, approx 66% based on columnWidth */
+            min-width: 300px; /* Minimum width before wrapping */
+            padding: 20px;
+        }
+
+        .hero-column-right p.sub-heading {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold; /* Based on <strong> tag in your P block */
+            margin-bottom: 25px; /* From marginBottomTablet: 25 */
+            margin-top: 0;
+            color: #ccc; /* Slightly lighter color for sub-heading */
+        }
+
+        .hero-column-right h1.main-heading {
+            font-size: 48px; /* Example size, adjust as needed */
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        /* --- Footer Styles --- */
+        .site-footer {
+            background-color: #333; /* Dark background for footer */
+            color: #fff;
+            padding: 60px 50px; /* Padding based on block */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 40vh; /* minHeight from your block */
+            text-align: center;
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 12px; /* blockGap from your block */
+            flex-wrap: nowrap;
+        }
+
+        .social-links li {
+            display: inline-block;
+        }
+
+        .social-links a {
+            display: block;
+            width: 40px; /* Example size for icons */
+            height: 40px; /* Example size for icons */
+            background-color: #555; /* Icon background, adjust as needed */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px; /* Example icon size */
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #007bff; /* Example hover color */
+        }
+
+        /* Basic Font Awesome for social icons (you'll need to link to Font Awesome CDN) */
+        .fab {
+            font-family: 'Font Awesome 5 Brands'; /* This requires Font Awesome to be linked */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 20px; /* paddingTablet */
+            }
+
+            .hero-inner-wrap {
+                flex-direction: column; /* Stack columns on tablet */
+                align-items: flex-start; /* Align content to start */
+                gap: 0;
+            }
+
+            .hero-column-left,
+            .hero-column-right {
+                flex: none; /* Remove flex grow */
+                width: 100%; /* Take full width */
+                padding: 20px; /* paddingTablet */
+            }
+
+            .hero-column-right p.sub-heading {
+                margin-bottom: 20px; /* marginBottomMobile */
+            }
+
+            .hero-column-right h1.main-heading {
+                font-size: 36px; /* Adjust font size for tablets */
+            }
+
+            .site-footer {
+                padding: 40px 30px; /* Adjust footer padding */
+                min-height: unset; /* Remove min-height to allow content to dictate height */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 20px; /* paddingMobile */
+            }
+
+            .hero-column-left {
+                padding: 0; /* paddingMobile for column 1 */
+            }
+            .hero-column-right {
+                padding: 20px; /* paddingMobile for column 2 */
+            }
+
+            .hero-column-right h1.main-heading {
+                font-size: 28px; /* Adjust font size for mobile */
+            }
+
+            .site-footer {
+                padding: 30px 20px; /* Even smaller padding for mobile */
+            }
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40wibVxf5BgzzF/gCLvTjJzQ+2rQjK85s4rG2oM+72S5pL5B7y7K8h+x1bXk2v3+A2+0y+4v9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="container">
-        <img src="https://hothanhtuan.com/wp-content/uploads/2024/11/htt_logo-2.png" alt="Hồ Thanh Tuấn" class="avatar">
-        <h1>Hồ Thanh Tuấn</h1>
-        <h2>HTT Home</h2>
-        <p>Tôi là một người yêu thích công nghệ, phát triển cá nhân và khám phá thế giới số. Đây là không gian để tôi chia sẻ những điều ý nghĩa.</p>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/hothanhtuan/" target="_blank">LinkedIn</a>
+
+    <section class="hero-section">
+        <div class="hero-inner-wrap">
+            <div class="hero-column-left">
+                </div>
+            <div class="hero-column-right">
+                <p class="sub-heading"><strong>HTT Home</strong></p>
+                <h1 class="main-heading"></h1> </div>
         </div>
-    </div>
+    </section>
+
+    <footer class="site-footer">
+        <ul class="social-links">
+            <li><a href="https://www.facebook.com/hothtn/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/hothanhtuan/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="mailto:mail@hothanhtuan.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+        <p style="margin-top: 20px; font-size: 14px;">&copy; 2024 Ho Thanh Tuan. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
