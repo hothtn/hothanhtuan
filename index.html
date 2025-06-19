@@ -15,30 +15,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* CSS Variables - Defined based on both screenshot and original site's CSS */
+        /* CSS Variables - Rút gọn và tối ưu */
         :root {
-            /* Colors from screenshot */
             --main-bg-color: #C7A855; /* Mustard yellow from screenshot */
-            --text-dark-screenshot: #000000; /* Black text for "HTT HOME" */
-            --icon-blue-fb: #3b5998; /* Facebook blue */
-            --icon-blue-li: #0077B5; /* LinkedIn blue */
-            --icon-mail-border: #000000; /* Black border for mail icon */
-            --icon-mail-text: #000000; /* Black text for mail icon */
-
-            /* Colors from original hothanhtuan.com (dark theme) */
-            --dark-section-bg: #0A0A0A; /* Dark background for other sections */
-            --dark-text-light: #F0F0F0; /* Light text on dark background */
-            --footer-bg: #14171c; /* Darker background for footer (from Neve theme variables) */
-            --footer-text: #ffffff; /* White text for footer (from Neve theme variables) */
-            --link-color: #000000; /* Neve primary accent for links, changed based on site CSS */
-            --link-hover-color: #4f4f4f; /* Neve secondary accent for link hover, changed based on site CSS */
-
-            /* Spacing */
-            --spacing-xs: 10px;
-            --spacing-sm: 20px;
-            --spacing-md: 40px;
-            --spacing-lg: 60px;
-            --spacing-xl: 80px;
+            --text-dark: #000000;    /* Black text for "HTT HOME" */
+            --icon-color: #000000;   /* Màu mặc định cho icon - đen */
+            --icon-bg-color: #f0f0f0; /* Màu nền icon nhẹ nhàng */
+            --icon-hover-color: #C7A855; /* Màu icon khi hover */
+            --icon-hover-bg-color: #000000; /* Màu nền icon khi hover */
 
             /* Fonts */
             --font-poppins: 'Poppins', sans-serif;
@@ -46,92 +30,80 @@
         }
 
         /* Base Styles */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
+        html, body {
             margin: 0;
-            font-family: var(--font-poppins); /* General body font from Neve */
+            padding: 0;
+            height: 100%; /* Đảm bảo body chiếm toàn bộ chiều cao */
+            font-family: var(--font-poppins);
             line-height: 1.6;
-            color: var(--dark-text-light); /* Default text color for non-hero sections */
-            background-color: var(--dark-section-bg); /* Default background color for sections */
+            color: var(--text-dark);
+            background-color: var(--main-bg-color);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            max-width: 1170px; /* Based on @media(min-width: 960px) in provided CSS */
-            margin: 0 auto;
-            padding: 0 var(--spacing-sm);
-            box-sizing: border-box;
+            overflow: hidden; /* Ngăn cuộn nếu không có nội dung lớn */
         }
 
         a {
-            color: var(--link-color);
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: var(--link-hover-color);
+            transition: all 0.3s ease;
         }
 
-        /* --- Hero Section Styles (matching the screenshot) --- */
+        /* --- Hero Section Styles (đã tối ưu) --- */
         .hero-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh; /* Full viewport height */
+            min-height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
             background-color: var(--main-bg-color);
-            position: relative;
+            position: relative; /* Để định vị các phần tử con */
             overflow: hidden;
+            text-align: center; /* Căn giữa nội dung văn bản */
         }
 
         .graphic-area {
             position: relative;
             width: 100%;
-            max-width: 600px; /* Control size of the area containing graphic + text */
-            height: 300px; /* Approximate height for the graphic area */
+            max-width: 600px; /* Vùng chứa graphic + text */
+            height: 300px; /* Chiều cao xấp xỉ của vùng graphic */
             display: flex;
-            justify-content: center; /* Center the graphic within its area */
+            justify-content: center;
             align-items: center;
-            margin-top: -10vh; /* Pull the graphic area slightly up from vertical center */
+            margin-top: -10vh; /* Kéo graphic lên một chút so với trung tâm dọc */
         }
 
         .htt-home-text-in-graphic-area {
             position: absolute;
-            top: 15%; /* Adjusted for visual placement in screenshot */
-            left: 5%; /* Adjusted for visual placement in screenshot */
-            font-family: var(--font-arial); /* Use a simpler font for this text, as in screenshot */
+            top: 15%;
+            left: 5%;
+            font-family: var(--font-arial);
             font-size: 16px;
             font-weight: bold;
             text-transform: uppercase;
-            color: var(--text-dark-screenshot);
+            color: var(--text-dark);
             z-index: 2;
         }
 
         .snail-graphic-centered {
             width: 100%;
-            max-width: 400px; /* Max width for the actual graphic */
+            max-width: 400px; /* Kích thước tối đa của graphic */
             height: auto;
             display: block;
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); /* Căn giữa */
             z-index: 1;
-            /* The image you provided for the background in previous steps: */
-            /* https://hothanhtuan.com/wp-content/uploads/2024/11/htt_logo-2.png */
-            /* This image is used as the main graphic now. */
         }
 
+        /* --- Social Media Icons (tối ưu và đồng bộ) --- */
         .social-icons-hero {
             position: absolute;
-            bottom: 50px; /* Distance from bottom of viewport */
+            bottom: 50px; /* Khoảng cách từ đáy màn hình */
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 15px;
+            gap: 20px; /* Khoảng cách giữa các icon */
             z-index: 2;
         }
 
@@ -139,66 +111,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 20px;
-            color: #FFF; /* Default white for icon itself */
-            transition: background-color 0.3s ease, color 0.3s ease;
+            width: 50px; /* Kích thước lớn hơn một chút */
+            height: 50px;
+            border-radius: 50%; /* Hình tròn */
+            font-size: 24px; /* Kích thước icon */
+            background-color: var(--icon-bg-color); /* Nền icon đồng bộ */
+            color: var(--icon-color); /* Màu icon đồng bộ */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Đổ bóng nhẹ tạo độ nổi */
         }
 
-        .social-icons-hero a.facebook-icon {
-            background-color: var(--icon-blue-fb);
-        }
-        .social-icons-hero a.linkedin-icon {
-            background-color: var(--icon-blue-li);
-        }
-        .social-icons-hero a.mail-icon {
-            background-color: transparent;
-            border: 2px solid var(--icon-mail-border);
-            color: var(--icon-mail-text);
-        }
-        .social-icons-hero a.mail-icon:hover {
-            background-color: var(--icon-mail-border);
-            color: #FFF;
-        }
-
-        /* --- Other Sections (Example: About Section - Styled with dark theme from hothanhtuan.com) --- */
-        .about-section {
-            padding: var(--spacing-xl) var(--spacing-sm);
-            background-color: var(--dark-section-bg);
-            text-align: center;
-        }
-        .about-section h2 {
-            font-size: 48px; /* Based on h2 font size from Neve CSS */
-            font-weight: 800;
-            line-height: 1.2em;
-            color: var(--dark-text-light);
-            margin-bottom: var(--spacing-md);
-        }
-        .about-section p {
-            font-size: 17px; /* Based on body font size from Neve CSS */
-            line-height: 1.7;
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--dark-text-light);
-        }
-
-        /* --- Footer Styles (Based on hothanhtuan.com dark theme) --- */
-        .site-footer {
-            background-color: var(--footer-bg);
-            color: var(--footer-text);
-            padding: var(--spacing-sm) var(--spacing-sm); /* Adjusted for simpler content */
-            text-align: center;
-            font-size: 14px;
-            border-top: 1px solid rgba(255,255,255,0.1); /* Subtle border */
-        }
-        .site-footer a {
-            color: var(--footer-text); /* Link color in footer */
-            text-decoration: underline;
-        }
-        .site-footer a:hover {
-            color: #aaa;
+        .social-icons-hero a:hover {
+            background-color: var(--icon-hover-bg-color); /* Nền icon khi hover */
+            color: var(--icon-hover-color); /* Màu icon khi hover */
+            transform: scale(1.1); /* Hiệu ứng phóng to nhẹ */
         }
 
         /* Responsive Adjustments */
@@ -217,15 +142,9 @@
                 bottom: 40px;
             }
             .social-icons-hero a {
-                width: 35px;
-                height: 35px;
-                font-size: 18px;
-            }
-            .about-section h2 {
-                font-size: 40px;
-            }
-            .about-section p {
-                font-size: 16px;
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
             }
         }
 
@@ -233,7 +152,7 @@
             .graphic-area {
                 max-width: 400px;
                 height: 200px;
-                margin-top: -5vh; /* Less pull up on smaller screens */
+                margin-top: -5vh;
             }
             .htt-home-text-in-graphic-area {
                 font-size: 12px;
@@ -245,21 +164,12 @@
             }
             .social-icons-hero {
                 bottom: 25px;
-                gap: 10px;
+                gap: 15px;
             }
             .social-icons-hero a {
-                width: 30px;
-                height: 30px;
-                font-size: 16px;
-            }
-            .about-section {
-                padding: var(--spacing-lg) var(--spacing-sm);
-            }
-            .about-section h2 {
-                font-size: 30px;
-            }
-            .about-section p {
-                font-size: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
             }
         }
     </style>
@@ -268,16 +178,16 @@
 
     <section class="hero-container">
         <div class="graphic-area">
+            <p class="htt-home-text-in-graphic-area">HTT HOME</p>
             <img src="https://hothanhtuan.com/wp-content/uploads/2024/11/htt_logo-2.png" alt="Snail Graphic" class="snail-graphic-centered">
         </div>
 
         <div class="social-icons-hero">
-            <a href="https://www.facebook.com/hothtn/" aria-label="Facebook" class="facebook-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.linkedin.com/in/hothanhtuan/" aria-label="LinkedIn" class="linkedin-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="mailto:mail@hothanhtuan.com" aria-label="Email" class="mail-icon"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.facebook.com/hothtn/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/in/hothanhtuan/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:mail@hothanhtuan.com" aria-label="Email" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
         </div>
     </section>
-
 
 </body>
 </html>
