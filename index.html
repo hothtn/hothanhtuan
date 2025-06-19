@@ -40,7 +40,7 @@
             background-color: var(--main-bg-color);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            overflow: hidden; /* Ngăn cuộn nếu không có nội dung lớn */
+            overflow: hidden;
         }
 
         a {
@@ -68,7 +68,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* margin-top: -10vh; -- Đã bỏ để Flexbox căn giữa tự nhiên hơn */
         }
 
         .snail-graphic-centered {
@@ -85,22 +84,20 @@
 
         /* --- Social Media Icons --- */
         .social-icons-hero {
-            /* Đã loại bỏ position: absolute để cho phép Flexbox quản lý vị trí */
-            /* Đã loại bỏ bottom, left, transform: translateX */
             display: flex;
             gap: 20px;
             z-index: 2;
-            margin-top: 40px; /* Tạo khoảng cách 40px từ khối graphic phía trên */
+            margin-top: 40px;
         }
 
         .social-icons-hero a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 38px; /* Giảm kích thước */
+            height: 38px; /* Giảm kích thước */
             border-radius: 50%;
-            font-size: 24px;
+            font-size: 18px; /* Giảm kích thước font icon */
             background-color: var(--icon-bg-color);
             color: var(--icon-color);
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -122,12 +119,12 @@
                 max-width: 350px;
             }
             .social-icons-hero {
-                margin-top: 30px; /* Điều chỉnh khoảng cách trên tablet */
+                margin-top: 30px;
             }
             .social-icons-hero a {
-                width: 45px;
-                height: 45px;
-                font-size: 22px;
+                width: 34px; /* Giảm kích thước */
+                height: 34px; /* Giảm kích thước */
+                font-size: 16px; /* Giảm kích thước font icon */
             }
         }
 
@@ -135,19 +132,18 @@
             .graphic-area {
                 max-width: 400px;
                 height: 200px;
-                /* margin-top: -5vh; -- Đã bỏ */
             }
             .snail-graphic-centered {
                 max-width: 250px;
             }
             .social-icons-hero {
-                margin-top: 20px; /* Điều chỉnh khoảng cách trên mobile */
+                margin-top: 20px;
                 gap: 15px;
             }
             .social-icons-hero a {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
+                width: 30px; /* Giảm kích thước */
+                height: 30px; /* Giảm kích thước */
+                font-size: 14px; /* Giảm kích thước font icon */
             }
         }
     </style>
