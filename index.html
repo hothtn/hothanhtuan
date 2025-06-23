@@ -53,10 +53,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: center; /* Căn giữa dọc các flex item */
             min-height: 100vh;
             background-color: var(--main-bg-color);
-            position: relative;
+            position: relative; /* Giữ thuộc tính này cho transform */
             overflow: hidden;
         }
 
@@ -129,28 +129,26 @@
         }
 
         @media (max-width: 600px) {
+            .hero-container {
+                /* Đẩy toàn bộ khối nội dung (logo + icon) lên trên 5% chiều cao của chính nó */
+                transform: translateY(-5%); 
+            }
             .graphic-area {
                 max-width: 400px;
                 height: 200px;
-                /* Tinh chỉnh vị trí dọc cho graphic-area trên mobile */
-                /* Nếu logo bị đẩy lên quá cao, thử dùng margin-top: */
-                /* margin-top: -20px; */
-                /* Hoặc nếu bị đẩy xuống quá thấp, thử dùng margin-bottom âm: */
-                margin-bottom: -50px; /* Điều chỉnh giá trị này để logo dịch chuyển lên */
-                                      /* Giá trị âm sẽ kéo graphic-area xuống phía dưới tâm (trong flex-direction: column) */
-                                      /* hoặc kéo khối icon lên trên */
+                /* Đã bỏ margin-bottom cũ */
             }
             .snail-graphic-centered {
                 max-width: 250px;
             }
             .social-icons-hero {
-                margin-top: 20px;
-                gap: 15px;
+                margin-top: 35px;
+                gap: 25px;
             }
             .social-icons-hero a {
-                width: 30px;
-                height: 30px;
-                font-size: 14px;
+                width: 28px;
+                height: 28px;
+                font-size: 13px;
             }
         }
     </style>
